@@ -2,8 +2,11 @@
 
 import Button from "./Button";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { ChevronDown, Sparkles } from "lucide-react";
+
+// Dynamic import for client-side only
+const SubPixelSkimmer = lazy(() => import("@/components/effects/SubPixelSkimmer"));
 
 interface HeroProps {
   title: string;
@@ -34,6 +37,11 @@ export default function Hero({
 }: HeroProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +63,13 @@ export default function Hero({
       className={`relative ${heightClasses[height]} flex items-center overflow-hidden`} 
       role="banner"
     >
+      {/* Sub-Pixel Skimmer Effect - only on client */}
+      {mounted && (
+        <Suspense fallback={null}>
+          <SubPixelSkimmer />
+        </Suspense>
+      )}
+      
       {/* Background Image with parallax effect */}
       {backgroundImage && (
         <>

@@ -113,7 +113,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="font-open-sans antialiased">
+      <body 
+        className={`${openSans.variable} ${poppins.variable} font-sans antialiased`}
+        data-skimmer-enabled="true"
+      >
         <div className="min-h-screen flex flex-col pt-[73px]">
           <Header />
           <main className="flex-grow">

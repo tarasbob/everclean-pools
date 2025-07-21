@@ -478,3 +478,42 @@
     padding: 0;
   }
 }
+
+/* Sub-Pixel Skimmer Effect */
+.skimmer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(24, 185, 232, 0.15) 10%,
+    rgba(24, 185, 232, 0.25) 50%,
+    rgba(24, 185, 232, 0.15) 90%,
+    transparent 100%
+  );
+  will-change: transform, opacity;
+  pointer-events: none;
+  transition: opacity 0.3s ease-out;
+}
+
+/* High DPI screens get thinner line */
+@media (min-resolution: 2dppx) {
+  .skimmer-bar {
+    width: 0.5px;
+  }
+}
+
+/* For the skimmer container, we need to ensure proper width */
+#skimmer-layer {
+  width: 100%;
+}
+
+/* Reduced motion: no movement, just fade */
+@media (prefers-reduced-motion: reduce) {
+  .skimmer-bar {
+    display: none !important;
+  }
+}
