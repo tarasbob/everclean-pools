@@ -1,0 +1,99 @@
+
+> everclean-pools@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.4.2
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.62:3000
+
+ ✓ Starting...
+ ✓ Ready in 983ms
+ ⨯ ./components/ui/Button.tsx
+Error:   [31mx[0m You're importing a component that needs `useRef`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+  [31m|[0m
+  [31m|[0m  Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+  [31m|[0m
+
+   ,-[[36;1;4m/Users/tarasbobrovytsky/Dev/Demo/everclean-pools/components/ui/Button.tsx[0m:2:1]
+ [2m1[0m | import Link from "next/link";
+ [2m2[0m | import { ReactNode, MouseEvent, useRef } from "react";
+   : [35;1m                                ^^^^^^[0m
+ [2m3[0m | import LoadingSpinner from "./LoadingSpinner";
+ [2m4[0m | import { ArrowRight } from "lucide-react";
+   `----
+
+Import trace for requested module:
+./components/ui/Button.tsx
+./app/not-found.tsx
+ ○ Compiling /_not-found ...
+ ⨯ ./components/ui/Button.tsx
+Error:   [31mx[0m You're importing a component that needs `useRef`. This React Hook only works in a Client Component. To fix, mark the file (or its parent) with the `"use client"` directive.
+  [31m|[0m
+  [31m|[0m  Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+  [31m|[0m
+
+   ,-[[36;1;4m/Users/tarasbobrovytsky/Dev/Demo/everclean-pools/components/ui/Button.tsx[0m:2:1]
+ [2m1[0m | import Link from "next/link";
+ [2m2[0m | import { ReactNode, MouseEvent, useRef } from "react";
+   : [35;1m                                ^^^^^^[0m
+ [2m3[0m | import LoadingSpinner from "./LoadingSpinner";
+ [2m4[0m | import { ArrowRight } from "lucide-react";
+   `----
+
+Import trace for requested module:
+./components/ui/Button.tsx
+./app/not-found.tsx
+ ✓ Compiled / in 66ms (416 modules)
+ GET /_next/static/webpack/a47866e82db2f0b6.webpack.hot-update.json 500 in 960ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 500 in 236ms
+ GET / 500 in 6ms
+ GET /_next/static/webpack/a47866e82db2f0b6.webpack.hot-update.json 500 in 7ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 239ms (1066 modules)
+ GET / 200 in 479ms
+ ✓ Compiled /favicon.ico in 97ms (667 modules)
+ GET /favicon.ico 200 in 168ms
+ GET / 200 in 145ms
+ GET / 200 in 87ms
+ GET /favicon.ico 200 in 4ms
+ GET / 200 in 72ms
+ GET /favicon.ico 200 in 4ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 86ms
+ GET /favicon.ico 200 in 4ms
+ GET /favicon.ico 200 in 4ms
+ GET / 200 in 81ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 80ms
+ GET /favicon.ico 200 in 5ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 80ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 72ms
+ GET /favicon.ico 200 in 2ms
+ GET /favicon.ico 200 in 2ms
+ GET / 200 in 81ms
+ GET /favicon.ico 200 in 2ms
+ GET /favicon.ico 200 in 2ms
+ GET / 200 in 86ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 2ms
+ GET / 200 in 78ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 2ms
+ GET / 200 in 79ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 2ms
+ GET / 200 in 62ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 81ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 3ms
+ GET / 200 in 83ms
+ GET /favicon.ico 200 in 3ms
+ GET /favicon.ico 200 in 2ms
+[?25h
