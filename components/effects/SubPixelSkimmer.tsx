@@ -47,9 +47,9 @@ export default function SubPixelSkimmer() {
   const PAUSE_BETWEEN_SWEEPS = 5000; // 5 seconds pause
   
   // Speck engine parameters
-  const SPAWN_RATE = 0.15;
-  const SPECK_MIN_SIZE = 1;
-  const SPECK_MAX_SIZE = 2;
+  const SPAWN_RATE = 0.85; // Increased from 0.15 to spawn way more particles
+  const SPECK_MIN_SIZE = 2; // Increased from 1 for better visibility
+  const SPECK_MAX_SIZE = 5; // Increased from 2 for better visibility
   const CAPTURE_RIDE_DISTANCE = 0.08; // 8% of container width
   const SPAWN_AHEAD_MIN = 30;
   const SPAWN_AHEAD_MAX = 120;
@@ -94,14 +94,14 @@ export default function SubPixelSkimmer() {
 
   const spawnSpecks = useCallback((skimmerX: number, containerWidth: number, containerHeight: number) => {
     if (Math.random() < SPAWN_RATE && skimmerX >= 0 && skimmerX < containerWidth - 100) {
-      const numSpecks = Math.floor(Math.random() * 2) + 1; // 1-2 specks
+      const numSpecks = Math.floor(Math.random() * 5) + 3; // Increased from 1-2 to 3-7 specks per spawn
       
       for (let i = 0; i < numSpecks; i++) {
         const speck: Speck = {
           x: skimmerX + SPAWN_AHEAD_MIN + Math.random() * (SPAWN_AHEAD_MAX - SPAWN_AHEAD_MIN),
           y: 40 + Math.random() * (containerHeight - 80), // Keep away from edges
           size: SPECK_MIN_SIZE + Math.random() * (SPECK_MAX_SIZE - SPECK_MIN_SIZE),
-          opacity: 0.3 + Math.random() * 0.4, // 0.3 to 0.7 opacity
+          opacity: 0.6 + Math.random() * 0.4, // Increased from 0.3-0.7 to 0.6-1.0 opacity
           captured: false,
         };
         
@@ -184,8 +184,8 @@ export default function SubPixelSkimmer() {
         }
       }
       
-      // Draw speck
-      ctx.fillStyle = `rgba(100, 120, 140, ${speck.opacity})`;
+      // Draw speck with more visible color
+      ctx.fillStyle = `rgba(24, 185, 232, ${speck.opacity})`; // Changed to pool-blue color for better visibility
       ctx.fillRect(speck.x, speck.y, speck.size, speck.size);
       
       // Keep specks that are still visible
@@ -273,7 +273,7 @@ export default function SubPixelSkimmer() {
           ctx.globalAlpha = fadeOpacity;
           
           specksRef.current.forEach(speck => {
-            ctx.fillStyle = `rgba(100, 120, 140, ${speck.opacity})`;
+            ctx.fillStyle = `rgba(24, 185, 232, ${speck.opacity})`; // Pool-blue color
             ctx.fillRect(speck.x, speck.y, speck.size, speck.size);
           });
           

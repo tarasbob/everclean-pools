@@ -484,25 +484,26 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 1px;
+  width: 3px; /* Increased from 1px for better visibility */
   height: 100%;
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(24, 185, 232, 0.15) 10%,
-    rgba(24, 185, 232, 0.25) 50%,
-    rgba(24, 185, 232, 0.15) 90%,
+    rgba(24, 185, 232, 0.3) 10%, /* Increased opacity from 0.15 */
+    rgba(24, 185, 232, 0.5) 50%, /* Increased opacity from 0.25 */
+    rgba(24, 185, 232, 0.3) 90%, /* Increased opacity from 0.15 */
     transparent 100%
   );
   will-change: transform, opacity;
   pointer-events: none;
   transition: opacity 0.3s ease-out;
+  box-shadow: 0 0 10px rgba(24, 185, 232, 0.4); /* Added glow effect */
 }
 
-/* High DPI screens get thinner line */
+/* High DPI screens get slightly thinner line */
 @media (min-resolution: 2dppx) {
   .skimmer-bar {
-    width: 0.5px;
+    width: 2px; /* Increased from 0.5px */
   }
 }
 
